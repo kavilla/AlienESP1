@@ -22,15 +22,22 @@
 @property (strong, nonatomic) NSArray *suitValue;
 @property (weak, nonatomic) IBOutlet UIPickerView *cardPicker;
 @property (strong, nonatomic) AppDelegate *appDelegate;
+- (IBAction) selectCardTapped:(id)sender;
 
 @end
 
 @implementation FirstViewController
+    
+NSString * selectedFaceValue;
+NSString * selectedSuitValue;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
         
     SecondViewController *secondView =  [[SecondViewController alloc] init];
+    secondView.selectedCard = @"";
+    selectedFaceValue = @"";
+    selectedSuitValue = @"";
     secondView.guesses++;
     self.faceValue = @[@"The 1 of", @"The 2 of", @"The 3 of",
                           @"The 4 of", @"The 5 of",
@@ -41,6 +48,8 @@
     self.suitValue = @[@"♥️", @"♣️", @"♦️", @"♠️"];
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -71,15 +80,17 @@ numberOfRowsInComponent:(NSInteger)component {
         return self.suitValue[row];
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSString* face = [[NSString alloc] init];
-    NSString* suit = [[NSString alloc] init];
-    face = self.faceValue[row];
-    suit = self.suitValue[row];
-    SecondViewController *secondView =  [[SecondViewController alloc] init];
-    secondView.selectedCard = [NSString stringWithFormat:@"%@ %@", face, suit];
-    secondView.guesses++;
+- (IBAction)selectCardTapped:(id)sender {
+   SecondViewController *secondView =  [[SecondViewController alloc] init];
+   secondView.selectedCard = [NSString stringWithFormat:@"%@ %@", selectedFaceValue, selectedSuitValue];
+   secondView.guesses++;
+}
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if (component == 0) 
+        selectedFaceValue = self.faceValue[row];
+    else 
+        selectedSuitValue = self.suitValue[row];
 }
 
 @end
