@@ -36,8 +36,6 @@ NSString * selectedSuitValue;
         
     SecondViewController *secondView =  [[SecondViewController alloc] init];
     secondView.selectedCard = @"";
-    selectedFaceValue = @"";
-    selectedSuitValue = @"";
     secondView.guesses++;
     self.faceValue = @[@"The 1 of", @"The 2 of", @"The 3 of",
                           @"The 4 of", @"The 5 of",
@@ -46,6 +44,9 @@ NSString * selectedSuitValue;
                        @"The 13 of"];
     
     self.suitValue = @[@"♥️", @"♣️", @"♦️", @"♠️"];
+    
+    selectedFaceValue = self.faceValue[0];
+    selectedSuitValue = self.suitValue[0];
     
     [self.cardPicker selectRow:0 inComponent:0 animated:NO];
     [self.cardPicker selectRow:0 inComponent:1 animated:NO];
@@ -83,7 +84,11 @@ numberOfRowsInComponent:(NSInteger)component {
 }
 
 - (IBAction)selectCardTapped:(id)sender {
- //  SecondViewController *secondView =  [[SecondViewController alloc] init];
+    [self selectCurrentCard];
+}
+
+- (void) selectCurrentCard {
+    //  SecondViewController *secondView =  [[SecondViewController alloc] init];
     NSString * selectedCard = [NSString stringWithFormat:@"%@ %@", selectedFaceValue, selectedSuitValue];
  // secondView.guesses++;
    // ^^ do you still need this view 
