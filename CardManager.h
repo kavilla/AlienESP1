@@ -5,7 +5,7 @@
 #pragma mark - Main methods
 + (CardManager *) sharedCardManager;
 
-- (void) setSelectedCard: (NSString *) newCARD;
+- (void) setSelectedCard: (NSString *) newCard;
 - (NSString *) getSelectedCard;
 
 @end
