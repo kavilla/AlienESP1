@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CardManager.h"
 
 @interface RootViewController : UITabBarController {
     @public NSString* randomCard;
