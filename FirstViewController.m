@@ -81,9 +81,12 @@ numberOfRowsInComponent:(NSInteger)component {
 }
 
 - (IBAction)selectCardTapped:(id)sender {
-   SecondViewController *secondView =  [[SecondViewController alloc] init];
-   secondView.selectedCard = [NSString stringWithFormat:@"%@ %@", selectedFaceValue, selectedSuitValue];
-   secondView.guesses++;
+ //  SecondViewController *secondView =  [[SecondViewController alloc] init];
+    NSString * selectedCard = [NSString stringWithFormat:@"%@ %@", selectedFaceValue, selectedSuitValue];
+ // secondView.guesses++;
+   // ^^ do you still need this view 
+   [[CardManager sharedCardManager]setSelectedCard: selectedCard];
+    // you can create a guesses variable in the card maanger as well
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {

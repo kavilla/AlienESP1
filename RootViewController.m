@@ -34,6 +34,12 @@
         randomCard = [NSString stringWithFormat:@"The %d of ♦️", self.face];
     if (self.suit == 39)
         randomCard = [NSString stringWithFormat:@"The %d of ♠️", self.face];
+    
+}
+
+- (void) viewDidAppear {
+    NSString * selectedCard = [[CardManager sharedCardManager] getSelectedCard];
+    NSLog(selectedCard);
 }
 
 - (void)didReceiveMemoryWarning {
