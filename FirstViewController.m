@@ -40,6 +40,8 @@
     
     self.suitValue = @[@"♥️", @"♣️", @"♦️", @"♠️"];
     
+    [self.cardPicker selectRow:0 inComponent:0 animated:NO];
+    [self.cardPicker selectRow:0 inComponent:1 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
