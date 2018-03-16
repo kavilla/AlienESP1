@@ -4,7 +4,7 @@
 
 static HTTPManager *sharedCardManager = nil;
 
-static NSString * selectedCard;
+static NSString * selectedCard = @"";
 
 + (CardManager *) sharedCardManager {
     if (sharedCardManager == nil) {
