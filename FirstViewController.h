@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CardManager.h"
 
 @interface FirstViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource> {
     @public int cardNumber;
